@@ -1,0 +1,390 @@
+{
+  "agent_design": {
+    "version": "2.0",
+    "description": "Enhanced progressive development plan for LangGraph-based PowerBI SQL Agent with planning, self-correction, hierarchical memory, multi-tool execution, and PowerBI integration.",
+
+    "stages": [
+      {
+        "stage": 1,
+        "name": "Basic Agent with Schema Awareness",
+        "description": "User → Schema Inspection → Plan → SQL Executor → Output",
+        "nodes": [
+          {
+            "id": "user_input",
+            "type": "input",
+            "description": "Takes natural language query from user."
+          },
+          {
+            "id": "schema_inspector",
+            "type": "tool",
+            "description": "Reads PowerBI model metadata, relationships, measures, calculated columns.",
+            "toolSpec": {
+              "name": "SchemaInspectorTool",
+              "parameters": ["model_name", "table_filter"]
+            }
+          },
+          {
+            "id": "planner",
+            "type": "llm",
+            "description": "Creates execution plan and SQL query based on schema knowledge.",
+            "system_prompt": "Generate a clear step-by-step plan using schema context. Current plan is injected into every prompt."
+          },
+          {
+            "id": "query_validator",
+            "type": "tool",
+            "description": "Validates SQL syntax before execution to reduce error cycles.",
+            "toolSpec": {
+              "name": "QueryValidatorTool",
+              "parameters": ["sql_query", "schema_context"]
+            }
+          },
+          {
+            "id": "sql_executor",
+            "type": "tool",
+            "description": "Executes SQL query on database (RDS/SQLite/Postgres).",
+            "toolSpec": {
+              "name": "SQLExecutorTool",
+              "parameters": ["query"]
+            }
+          },
+          {
+            "id": "output_formatter",
+            "type": "output",
+            "description": "Formats database results into JSON or human-readable text."
+          }
+        ],
+        "edges": [
+          { "from": "user_input", "to": "schema_inspector" },
+          { "from": "schema_inspector", "to": "planner" },
+          { "from": "planner", "to": "query_validator" },
+          { "from": "query_validator", "to": "sql_executor" },
+          { "from": "sql_executor", "to": "output_formatter" }
+        ]
+      },
+
+      {
+        "stage": 2,
+        "name": "Enhanced Self-Correction with Error Classification",
+        "nodes_added": [
+          {
+            "id": "error_classifier",
+            "type": "llm",
+            "description": "Classifies errors as syntax, permission, logical, or data-related."
+          },
+          {
+            "id": "error_handler",
+            "type": "llm",
+            "description": "Handles different error types with specific correction strategies.",
+            "features": ["retry_limits", "error_specific_strategies"]
+          }
+        ],
+        "edges_updated": [
+          {
+            "condition": "if sql_executor returns error",
+            "from": "sql_executor",
+            "to": "error_classifier"
+          },
+          {
+            "from": "error_classifier",
+            "to": "error_handler"
+          },
+          {
+            "condition": "if retry_count < max_retries",
+            "from": "error_handler",
+            "to": "query_validator"
+          },
+          {
+            "condition": "if retry_count >= max_retries",
+            "from": "error_handler",
+            "to": "output_formatter"
+          }
+        ]
+      },
+
+      {
+        "stage": 3,
+        "name": "Advanced Hierarchical Memory with Conflict Resolution",
+        "memory": {
+          "type": "hierarchical_with_management",
+          "components": [
+            {
+              "memory_id": "best_practices",
+              "description": "General lessons learned from past queries.",
+              "schema_specific": true,
+              "max_entries": 50,
+              "scoring": ["success_rate", "recency", "usage_frequency"]
+            },
+            {
+              "memory_id": "error_avoidance",
+              "description": "Stores failed queries and their corrections.",
+              "schema_specific": true,
+              "max_entries": 100,
+              "scoring": ["error_frequency", "correction_success", "recency"]
+            },
+            {
+              "memory_id": "schema_facts",
+              "description": "Database schema knowledge and metadata.",
+              "schema_specific": true,
+              "max_entries": 200,
+              "scoring": ["accuracy", "usage_frequency", "validation_success"]
+            },
+            {
+              "memory_id": "cached_queries",
+              "description": "Stores frequently used or costly queries with results.",
+              "max_entries": 75,
+              "scoring": ["execution_time", "usage_frequency", "result_size"]
+            },
+            {
+              "memory_id": "workflow_patterns",
+              "description": "Successful tool usage sequences and dependencies.",
+              "max_entries": 30,
+              "scoring": ["success_rate", "efficiency", "recency"]
+            }
+          ],
+          "main_index": "Dynamic pointer system to relevant sub-memories with conflict resolution",
+          "management_features": [
+            "memory_conflict_resolver",
+            "memory_pruning_scheduler", 
+            "memory_consolidation_engine"
+          ]
+        },
+        "nodes_added": [
+          {
+            "id": "memory_manager",
+            "type": "llm",
+            "description": "Manages memory conflicts, pruning, and consolidation."
+          },
+          {
+            "id": "reflection_node",
+            "type": "llm",
+            "description": "Analyzes execution outcome, updates hierarchical memory with conflict resolution."
+          }
+        ],
+        "edges_updated": [
+          { "from": "sql_executor", "to": "reflection_node" },
+          { "from": "error_handler", "to": "reflection_node" },
+          { "from": "reflection_node", "to": "memory_manager" },
+          { "from": "memory_manager", "to": "output_formatter" }
+        ]
+      },
+
+      {
+        "stage": 4,
+        "name": "Multi-Tool Ecosystem with Dependency Management",
+        "tools_added": [
+          {
+            "id": "search_tool",
+            "type": "tool",
+            "description": "Retrieves knowledge or documentation (Kendra/Vector DB).",
+            "toolSpec": {
+              "name": "SearchTool",
+              "parameters": ["query", "knowledge_domain"]
+            }
+          },
+          {
+            "id": "data_preview_tool",
+            "type": "tool",
+            "description": "Samples data to understand content and data quality.",
+            "toolSpec": {
+              "name": "DataPreviewTool",
+              "parameters": ["table_name", "sample_size", "columns"]
+            }
+          },
+          {
+            "id": "statistical_analysis_tool",
+            "type": "tool",
+            "description": "Performs basic statistical operations (correlation, trends).",
+            "toolSpec": {
+              "name": "StatisticalAnalysisTool",
+              "parameters": ["data", "analysis_type", "parameters"]
+            }
+          },
+          {
+            "id": "visualization_recommender",
+            "type": "llm",
+            "description": "Suggests appropriate chart types based on query results and data characteristics."
+          },
+          {
+            "id": "visualization_tool",
+            "type": "tool",
+            "description": "Generates charts/plots using Plotly for Gradio integration.",
+            "toolSpec": {
+              "name": "VisualizationTool",
+              "parameters": ["data", "chart_type", "styling_options"]
+            }
+          },
+          {
+            "id": "tool_dependency_manager",
+            "type": "orchestrator",
+            "description": "Manages tool sequencing and dependencies."
+          }
+        ],
+        "tool_groups": {
+          "schema_tools": ["SchemaInspectorTool", "QueryValidatorTool"],
+          "sql_tools": ["SQLExecutorTool", "DataPreviewTool"],
+          "knowledge_tools": ["SearchTool"],
+          "analysis_tools": ["StatisticalAnalysisTool"],
+          "visualization_tools": ["VisualizationTool", "VisualizationRecommender"]
+        },
+        "tool_dependencies": {
+          "schema_inspection": { "precedes": ["query_validation", "sql_execution"] },
+          "query_validation": { "precedes": ["sql_execution"] },
+          "sql_execution": { "precedes": ["data_preview", "visualization"] },
+          "data_preview": { "can_precede": ["statistical_analysis"] },
+          "statistical_analysis": { "can_precede": ["visualization"] }
+        },
+        "edges_updated": [
+          {
+            "from": "planner",
+            "to": "tool_dependency_manager",
+            "description": "Determines tool execution sequence"
+          },
+          {
+            "from": "tool_dependency_manager",
+            "to": "search_tool",
+            "condition": "if query requires knowledge retrieval"
+          },
+          {
+            "from": "tool_dependency_manager", 
+            "to": "data_preview_tool",
+            "condition": "if data sampling needed"
+          },
+          {
+            "from": "statistical_analysis_tool",
+            "to": "visualization_recommender"
+          },
+          {
+            "from": "visualization_recommender",
+            "to": "visualization_tool"
+          }
+        ]
+      },
+
+      {
+        "stage": 5,
+        "name": "Performance Optimization and Context Management",
+        "optimization_features": [
+          {
+            "id": "plan_compressor",
+            "type": "optimizer",
+            "description": "Compresses plans to reduce token usage in system prompt injection.",
+            "methods": ["abbreviation_codes", "step_summarization", "rolling_window"]
+          },
+          {
+            "id": "context_window_manager",
+            "type": "optimizer", 
+            "description": "Manages long conversations with intelligent context truncation.",
+            "methods": ["priority_retention", "summary_compression", "key_info_preservation"]
+          },
+          {
+            "id": "performance_monitor",
+            "type": "monitor",
+            "description": "Tracks query execution times, memory usage, and optimizes caching.",
+            "metrics": ["execution_time", "token_usage", "memory_hit_rate", "tool_efficiency"]
+          },
+          {
+            "id": "cache_optimizer",
+            "type": "optimizer",
+            "description": "Intelligent caching of frequently accessed queries and results."
+          }
+        ],
+        "nodes_added": [
+          {
+            "id": "context_optimizer",
+            "type": "optimizer",
+            "description": "Optimizes context and plan injection for token efficiency."
+          }
+        ],
+        "edges_updated": [
+          { "from": "user_input", "to": "context_optimizer" },
+          { "from": "context_optimizer", "to": "schema_inspector" },
+          { "from": "performance_monitor", "to": "cache_optimizer" }
+        ]
+      },
+
+      {
+        "stage": 6,
+        "name": "PowerBI Integration and Connected Visualizations",
+        "powerbi_features": [
+          {
+            "id": "powerbi_model_connector",
+            "type": "tool",
+            "description": "Direct integration with PowerBI data models and semantic layers.",
+            "toolSpec": {
+              "name": "PowerBIConnectorTool",
+              "parameters": ["workspace_id", "dataset_id", "connection_string"]
+            }
+          },
+          {
+            "id": "measure_calculator_handler",
+            "type": "tool",
+            "description": "Handles PowerBI measures and calculated columns in queries.",
+            "toolSpec": {
+              "name": "MeasureHandlerTool", 
+              "parameters": ["measure_name", "context_filters", "aggregation_level"]
+            }
+          },
+          {
+            "id": "relationship_mapper",
+            "type": "tool",
+            "description": "Maps and validates table relationships in PowerBI models.",
+            "toolSpec": {
+              "name": "RelationshipMapperTool",
+              "parameters": ["source_table", "target_table", "relationship_type"]
+            }
+          },
+          {
+            "id": "connected_visualization_coordinator",
+            "type": "orchestrator",
+            "description": "Manages interconnected charts that update based on related queries.",
+            "features": [
+              "cross_filtering",
+              "synchronized_updates", 
+              "relationship_awareness",
+              "gradio_integration"
+            ]
+          }
+        ],
+        "gradio_integration": {
+          "plotly_charts": "Interactive charts with cross-filtering capabilities",
+          "dashboard_layout": "Connected visualization grid",
+          "real_time_updates": "Charts update based on related query results"
+        }
+      },
+
+      {
+        "stage": 7,
+        "name": "Final LangGraph Orchestration with Full Feature Set",
+        "features": [
+          "Graph-based orchestration of all nodes and edges",
+          "Optimized system prompt injection with plan compression",
+          "Multi-layered error handling with classification and retry logic",
+          "Advanced hierarchical memory with conflict resolution and pruning",
+          "Tool dependency management and intelligent sequencing",
+          "Performance monitoring and caching optimization",
+          "PowerBI native integration with connected visualizations",
+          "Gradio interface with interactive Plotly charts",
+          "Context window management for long conversations",
+          "Memory reflection and continuous learning"
+        ],
+        "deployment_considerations": [
+          "Token usage optimization",
+          "Memory store persistence (Vector DB/Redis)",
+          "Tool execution timeouts and fallbacks", 
+          "Error logging and monitoring",
+          "Performance metrics collection",
+          "Gradio app containerization",
+          "PowerBI authentication and permissions"
+        ]
+      }
+    ],
+
+    "implementation_notes": {
+      "memory_storage": "Use vector database (Pinecone/ChromaDB) for hierarchical memory with semantic search",
+      "caching_strategy": "Redis for query result caching, in-memory for frequently accessed schema facts",
+      "error_handling": "Implement exponential backoff for retries, circuit breaker for failing tools",
+      "monitoring": "Use structured logging for agent decisions, tool usage, and performance metrics",
+      "scalability": "Design for horizontal scaling when moving to AWS/Azure architecture"
+    }
+  }
+}
