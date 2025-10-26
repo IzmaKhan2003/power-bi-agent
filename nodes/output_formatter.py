@@ -1,32 +1,78 @@
-# nodes/output_formatter.py
-import json
+from prettytable import PrettyTable
+import re
+import ast
+from langchain_community.utilities import SQLDatabase
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 def output_formatter(state):
-    # Extract safely whether it's a dict or a Pydantic model
-    if hasattr(state, "dict"):
-        state = state.dict()
+    print("💥 output_formatter node reached!")
 
-    user_query = state.get("user_query")
-    sql_query = state.get("sql_query")
-    sql_plan = state.get("sql_plan")
-    query_result = state.get("query_result")
+    result = getattr(state, "query_result", None)
+    sql_query = getattr(state, "sql_query", None)
 
-    print("\n🪄 Formatting final output...\n")
+    if not result:
+        print("⚠️ No results to display.")
+        return state
 
-    if query_result is None:
-        message = "❌ No results were returned (or query failed)."
-    elif isinstance(query_result, list):
-        message = f"✅ Query returned {len(query_result)} row(s):\n" + json.dumps(query_result, indent=2)
-    else:
-        message = f"✅ Query Result: {query_result}"
+    print("✨ Formatting query result...")
 
-    formatted_output = {
-        "user_query": user_query,
-        "sql_plan": sql_plan,
-        "sql_query": sql_query,
-        "query_result": query_result,
-        "message": message
+    # Convert stringified result if necessary
+    if isinstance(result, str):
+        try:
+            result = ast.literal_eval(result)
+            print("🪄 Converted stringified result back to list.")
+        except Exception as e:
+            print(f"⚠️ Failed to parse result string: {e}")
+            return state
+
+    # Get DB URL from .env
+    db_url = os.getenv("DATABASE_URL")
+    db = SQLDatabase.from_uri(db_url)
+
+    # Try to detect actual column names
+    columns = []
+    if sql_query:
+        try:
+            # Extract table name from query (after FROM)
+            match = re.search(r"from\s+([a-zA-Z_][a-zA-Z0-9_]*)", sql_query, re.IGNORECASE)
+            if match:
+                table_name = match.group(1)
+                schema_info = db.run(f"SELECT column_name FROM information_schema.columns WHERE table_name = '{table_name}'")
+                # schema_info returns list of tuples like [('id',), ('name',), ...]
+                columns = [col[0] for col in schema_info]
+                print(f"🧩 Extracted actual columns from {table_name}: {columns}")
+
+            # If query selects specific columns, override the full list
+            if re.search(r"select\s+(.*?)\s+from", sql_query, re.IGNORECASE):
+                cols = re.findall(r"select\s+(.*?)\s+from", sql_query, re.IGNORECASE | re.DOTALL)[0]
+                if cols.strip() != "*":
+                    columns = [c.strip().split()[-1].replace(";", "") for c in cols.split(",")]
+        except Exception as e:
+            print(f"⚠️ Failed to extract column names: {e}")
+
+    if not columns:
+        # Fallback if no columns were found
+        num_cols = len(result[0]) if result else 0
+        columns = [f"Column {i+1}" for i in range(num_cols)]
+
+    # Build PrettyTable
+    table = PrettyTable()
+    table.field_names = columns
+
+    for row in result:
+        clean_row = [r.tobytes().decode('utf-8', 'ignore') if isinstance(r, memoryview) else r for r in row]
+        table.add_row(clean_row)
+
+    formatted_output = table.get_string()
+
+    print("\n✅ Query Result (Formatted):\n")
+    print(formatted_output)
+
+    return {
+        "formatted_output": formatted_output,
+        "query_result": result,
+        "sql_query": sql_query
     }
-
-    print(message)
-    return formatted_output

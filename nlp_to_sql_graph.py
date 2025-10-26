@@ -44,5 +44,9 @@ query = input("Enter your question: ")
 input_state = {"user_query": query}
 result = app.invoke(input_state)
 
-# print("\n✅ Final Output:")
-# print(result)
+# if "formatted_output" in result:
+#     print("\n✅ Final Output (Pretty Table):\n")
+#     print(result["formatted_output"])
+# else:
+#     print("\n✅ Final Output:")
+#     print(result)
