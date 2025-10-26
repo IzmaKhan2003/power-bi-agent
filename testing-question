@@ -1,0 +1,8 @@
+Simple lookup	“List all product names from the Products table.”
+Aggregation	    “What is the average unit price of all products?”
+Filtering	    “Show all products that cost more than 50 USD.”
+Ranking	        “Which employee handled the most orders?”
+Join	        “Which customer placed the largest order total?”
+Time-based	    “Show total sales by year.”
+Counting	    “How many customers are from Germany?”
+Advanced	    “Which supplier provides the most expensive product?”
