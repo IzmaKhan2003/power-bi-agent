@@ -3,23 +3,28 @@ from pydantic import BaseModel
 from nodes.user_input import user_input
 from nodes.schema_inspector import schema_inspector
 from nodes.planner import planner
+from nodes.query_validator import query_validator
+from typing import Optional, List, Any
 
 class AgentState(BaseModel):
-    user_query: str | None = None
-    db_schema: list | None = None
+    user_query: Optional[str] = None
+    db_schema: Optional[List[Any]] = None
+    sql_plan: Optional[str] = None
+    sql_query: Optional[str] = None
 
 builder = StateGraph(AgentState)
 
 builder.add_node("user_input", user_input)
 builder.add_node("schema_inspector", schema_inspector)
 builder.add_node("planner", planner)
+builder.add_node("query_validator", query_validator)
 
-builder.add_edge("user_input", "schema_inspector")
 
 builder.set_entry_point("user_input")
 
 builder.add_edge("user_input", "schema_inspector")
 builder.add_edge("schema_inspector", "planner")   
+builder.add_edge("planner", "query_validator")
 builder.set_finish_point("planner") 
 
 app = builder.compile()

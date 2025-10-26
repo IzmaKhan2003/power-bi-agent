@@ -22,41 +22,32 @@ def planner(state):
     )
 
     prompt = f"""
-    You are a data analyst assistant.  
-    Database schema:
-    {schema}
+You are a data planning assistant.
+Schema (list of tables and columns): {state.db_schema}
+User question: {state.user_query}
 
-    The user question:
-    "{user_query}"
-
-    Step 1 – Create reasoning steps for how you'd find this answer.  
-    Step 2 – Generate a valid SQL query for PostgreSQL (Northwind schema).
-
-    Return JSON like:
-    {{
-      "plan": "your reasoning here",
-      "sql": "SELECT ..."
-    }}
-    """
+Generate a JSON object with:
+- "plan": short explanation of what steps you will take
+- "sql": SQL query to answer the question
+"""
 
     response = llm.invoke(prompt)
-
-    if hasattr(response, "content") and isinstance(response.content, list):
-        text = response.content[0].text
-    elif hasattr(response, "text"):
-        text = response.text
-    else:
-        text = str(response)
-
+    text = response if isinstance(response, str) else getattr(response, "text", str(response))
+    text = text.replace("```json", "").replace("```", "").strip()
 
     try:
-        json_text = re.search(r"\{.*\}", text, re.DOTALL).group(0)
-        parsed = json.loads(json_text)
-    except Exception:
-        parsed = {"plan": "Could not parse reasoning.", "sql": text[:200]}
+        parsed = json.loads(text)
+        plan = parsed.get("plan")
+        sql_query = parsed.get("sql")
+    except:
+        plan, sql_query = "Failed to parse", text
 
-    print("✅ SQL Plan:", parsed.get("plan"))
-    print("🧩 SQL Query:", parsed.get("sql"))
+    print(f"✅ SQL Plan: {plan}")
+    print(f"🧩 SQL Query: {sql_query}")
 
-    return {"reasoning_plan": parsed.get("plan"), "sql_query": parsed.get("sql")}
-
+    return {
+        "user_query": state.user_query,
+        "db_schema": state.db_schema,
+        "sql_plan": plan,
+        "sql_query": sql_query
+    }
