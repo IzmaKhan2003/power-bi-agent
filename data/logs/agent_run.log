@@ -1,0 +1,8 @@
+2025-11-05 02:57:53,994 - DBConnection - INFO - Database connection test successful
+2025-11-05 02:57:54,187 - DBConnection - INFO - Query executed successfully | {'rows_returned': 14, 'duration_sec': 0.193}
+2025-11-05 02:57:54,187 - DBConnection - INFO - Retrieved 14 tables from database
+2025-11-05 02:57:54,351 - DBConnection - INFO - Query executed successfully | {'rows_returned': 14, 'duration_sec': 0.153}
+2025-11-05 02:57:54,354 - DBConnection - INFO - Retrieved 14 tables from database
+2025-11-05 02:57:54,541 - DBConnection - INFO - Query executed successfully | {'rows_returned': 4, 'duration_sec': 0.187}
+2025-11-05 02:57:54,694 - DBConnection - INFO - Query executed successfully | {'rows_returned': 3, 'duration_sec': 0.153}
+2025-11-05 02:57:54,937 - DBConnection - INFO - Query executed successfully | {'rows_returned': 13, 'duration_sec': 0.239}
