@@ -1,58 +1,99 @@
-# nodes/user_input.py
-from datetime import datetime
-import uuid
+"""
+User Input Node - Entry point for user queries
+"""
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+
+
 from typing import Dict, Any
+from graphs.state import AgentState
+from utils.constants import EXIT_COMMANDS, NodeNames
+from utils.logger import get_logger
+from utils.memory_manager import get_memory_manager
 
-def user_input(state: Dict[str, Any]) -> Dict[str, Any]:
+logger = get_logger("UserInputNode")
+memory = get_memory_manager()
+
+
+def user_input_node(state: AgentState) -> Dict[str, Any]:
     """
-    LangGraph node: Normalize and return user_input + session metadata.
-    Works for both {'input': {'user_query': '...'}} and {'user_query': '...'} formats.
+    Process user input and determine if conversation should continue
+    
+    This node:
+    1. Checks if user wants to exit
+    2. Validates input
+    3. Resolves pronoun references using conversation history
+    4. Updates node history
+    
+    Args:
+        state: Current agent state
+        
+    Returns:
+        Updated state dictionary
     """
-
-    # Ensure state is a dict
-    # Convert the incoming Pydantic state (AgentState) to a dict safely
-    if hasattr(state, "dict"):
-        incoming = state.dict()
-    elif isinstance(state, dict):
-        incoming = state
-    else:
-        incoming = {}
-    print(f"user_input received state")
-
-
-    # Detect user query from either 'input' or top-level
-    if isinstance(incoming.get("input"), dict):
-        user_query = incoming["input"].get("user_query") or incoming["input"].get("query")
-    else:
-        user_query = incoming.get("user_query") or incoming.get("query")
-
-    # If missing, prompt user interactively (important for continuous CLI chat)
+    logger.node_entry(NodeNames.USER_INPUT, state)
+    
+    user_query = state.get("user_query", "").strip()
+    session_id = state.get("session_id")
+    
+    # Check for exit commands
+    if user_query.lower() in EXIT_COMMANDS:
+        logger.info("User requested to exit")
+        logger.node_exit(NodeNames.USER_INPUT, success=True)
+        
+        return {
+            "should_exit": True,
+            "node_history": state.get("node_history", []) + [NodeNames.USER_INPUT]
+        }
+    
+    # Validate input
     if not user_query:
-        user_query = input("Enter your question: ").strip()
-
-    # If still missing after prompt, throw an error
-    if not user_query:
-        raise ValueError("❌ No user query provided to user_input node.")
-
-    # Create or reuse session id
-    session_id = incoming.get("session_id") or str(uuid.uuid4())
-
-    # Add metadata for traceability
-    metadata = {
-        "received_at": datetime.utcnow().isoformat() + "Z",
-        "session_id": session_id,
-        "input_method": incoming.get("input_method", "cli"),
+        logger.warning("Empty user query received")
+        return {
+            "should_exit": False,
+            "error_info": {
+                "type": "validation_error",
+                "message": "Please provide a query"
+            },
+            "node_history": state.get("node_history", []) + [NodeNames.USER_INPUT]
+        }
+    
+    # Resolve pronoun references using conversation history
+    original_query = user_query
+    resolved_query = memory.resolve_pronoun_references(user_query, session_id)
+    
+    if resolved_query != original_query:
+        logger.info(f"Resolved pronoun reference in query")
+        logger.debug(f"Original: {original_query}")
+        logger.debug(f"Resolved: {resolved_query}")
+    
+    # Update state
+    updates = {
+        "user_query": resolved_query,
+        "should_exit": False,
+        "error_info": None,
+        "retry_count": 0,  # Reset retry count for new query
+        "node_history": state.get("node_history", []) + [NodeNames.USER_INPUT],
+        "metadata": {
+            **state.get("metadata", {}),
+            "original_query": original_query,
+            "query_resolved": resolved_query != original_query
+        }
     }
+    
+    logger.info(f"Processing query: {resolved_query[:100]}...")
+    logger.node_exit(NodeNames.USER_INPUT, success=True)
+    
+    return updates
 
-    # Preserve conversation history if exists
-    conversation_history = incoming.get("conversation_history", [])
-    conversation_history.append({"role": "user", "content": user_query})
 
-    print(f"🧠 Received user query: {user_query}")
-
-    return {
-        "user_query": user_query,
-        "session_id": session_id,
-        "metadata": metadata,
-        "conversation_history": conversation_history
-    }
+def should_exit(state: AgentState) -> str:
+    """
+    Routing function to determine if conversation should exit
+    Args:
+        state: Current agent state
+    """
+    if state.get("should_exit", False):
+        return NodeNames.EXIT
+    return NodeNames.CONTEXT_MANAGER

@@ -6,3 +6,19 @@
 2025-11-05 02:57:54,541 - DBConnection - INFO - Query executed successfully | {'rows_returned': 4, 'duration_sec': 0.187}
 2025-11-05 02:57:54,694 - DBConnection - INFO - Query executed successfully | {'rows_returned': 3, 'duration_sec': 0.153}
 2025-11-05 02:57:54,937 - DBConnection - INFO - Query executed successfully | {'rows_returned': 13, 'duration_sec': 0.239}
+2025-11-05 03:09:30,833 - NLPToSQLGraph - INFO - Building NLP-to-SQL graph...
+2025-11-05 03:10:19,876 - NLPToSQLGraph - INFO - Building NLP-to-SQL graph...
+2025-11-05 03:10:50,569 - NLPToSQLGraph - INFO - Building NLP-to-SQL graph...
+2025-11-05 03:10:50,579 - NLPToSQLGraph - INFO - NLP-to-SQL graph compiled successfully
+2025-11-05 03:11:22,112 - NLPToSQLGraph - INFO - Building NLP-to-SQL graph...
+2025-11-05 03:11:22,133 - NLPToSQLGraph - INFO - NLP-to-SQL graph compiled successfully
+2025-11-05 03:11:22,368 - DBConnection - INFO - Database connection test successful
+2025-11-05 03:11:22,374 - MemoryManager - INFO - Created new session: session_20251105_031122
+2025-11-05 03:11:22,374 - CLIChat - INFO - Started new session: session_20251105_031122
+2025-11-05 03:11:22,432 - CLIChat - ERROR - Fatal error in CLI chat: cannot import name 'inspect_database_schema' from 'nodes.schema_inspector' (c:\Users\DELL\Documents\power-bi-agent\nodes\schema_inspector.py)
+2025-11-05 03:11:57,408 - NLPToSQLGraph - INFO - Building NLP-to-SQL graph...
+2025-11-05 03:11:57,408 - NLPToSQLGraph - INFO - NLP-to-SQL graph compiled successfully
+2025-11-05 03:11:57,786 - DBConnection - INFO - Database connection test successful
+2025-11-05 03:11:57,788 - MemoryManager - INFO - Created new session: session_20251105_031157
+2025-11-05 03:11:57,790 - CLIChat - INFO - Started new session: session_20251105_031157
+2025-11-05 03:12:24,153 - CLIChat - ERROR - Fatal error in CLI chat: name 'schema_info' is not defined
