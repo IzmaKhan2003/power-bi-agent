@@ -13,8 +13,8 @@ from utils.logger import get_logger
 
 # Import all node functions
 from nodes.user_input import user_input_node, should_exit
-# from nodes.context_manager import context_manager_node
-# from nodes.schema_inspector import schema_inspector_node
+from nodes.context_manager import context_manager_node
+from nodes.schema_inspector import schema_inspector_node
 # from nodes.business_context import business_context_node
 # from nodes.planner import planner_node
 # from nodes.query_validator import query_validator_node, route_after_validation
@@ -40,8 +40,8 @@ def create_nlp_to_sql_graph() -> StateGraph:
     
     # Add all nodes
     workflow.add_node(NodeNames.USER_INPUT, user_input_node)
-    # workflow.add_node(NodeNames.CONTEXT_MANAGER, context_manager_node)
-    # workflow.add_node(NodeNames.SCHEMA_INSPECTOR, schema_inspector_node)
+    workflow.add_node(NodeNames.CONTEXT_MANAGER, context_manager_node)
+    workflow.add_node(NodeNames.SCHEMA_INSPECTOR, schema_inspector_node)
     # workflow.add_node(NodeNames.BUSINESS_CONTEXT, business_context_node)
     # workflow.add_node(NodeNames.PLANNER, planner_node)
     # workflow.add_node(NodeNames.VALIDATOR, query_validator_node)
@@ -56,18 +56,18 @@ def create_nlp_to_sql_graph() -> StateGraph:
     
     # Add edges
     
-    # # From user input - check if should exit
-    # workflow.add_conditional_edges(
-    #     NodeNames.USER_INPUT,
-    #     should_exit,
-    #     {
-    #         NodeNames.EXIT: NodeNames.EXIT,
-    #         NodeNames.CONTEXT_MANAGER: NodeNames.CONTEXT_MANAGER
-    #     }
-    # )
+    # From user input - check if should exit
+    workflow.add_conditional_edges(
+        NodeNames.USER_INPUT,
+        should_exit,
+        {
+#            NodeNames.EXIT: NodeNames.EXIT,
+            NodeNames.CONTEXT_MANAGER: NodeNames.CONTEXT_MANAGER
+        }
+    )
     
-    # # From context manager - always go to schema inspector
-    # workflow.add_edge(NodeNames.CONTEXT_MANAGER, NodeNames.SCHEMA_INSPECTOR)
+    # From context manager - always go to schema inspector
+    workflow.add_edge(NodeNames.CONTEXT_MANAGER, NodeNames.SCHEMA_INSPECTOR)
     
     # # From schema inspector - always go to business context
     # workflow.add_edge(NodeNames.SCHEMA_INSPECTOR, NodeNames.BUSINESS_CONTEXT)

@@ -145,20 +145,20 @@ def run_cli_chat():
     # Get the graph
     graph = get_nlp_to_sql_graph()
     
-    # # Initial schema load (optional - can be cached)
-    # print("Loading database schema...")
-    # from nodes.schema_inspector import inspect_database_schema
-    # schema_info, error = inspect_database_schema()
+    # Initial schema load (optional - can be cached)
+    print("Loading database schema...")
+    from nodes.schema_inspector import inspect_database_schema
+    schema_info, error = inspect_database_schema()
     
-    # if error:
-    #     print(f"Warning: Could not load schema: {error}")
-    #     schema_info = None
-    # else:
-    #     print(f"✓ Schema loaded successfully\n")
+    if error:
+        print(f"Warning: Could not load schema: {error}")
+        schema_info = None
+    else:
+        print(f"✓ Schema loaded successfully\n")
     
-    # print_separator()
-    # print("Ready to answer your questions! Ask me anything about the database.")
-    # print_separator()
+    print_separator()
+    print("Ready to answer your questions! Ask me anything about the database.")
+    print_separator()
     
     # Main conversation loop
     query_count = 0
