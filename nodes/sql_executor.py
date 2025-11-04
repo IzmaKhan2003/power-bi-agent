@@ -19,7 +19,7 @@ def sql_executor(state):
     try:
         db = SQLDatabase.from_uri(db_url)
         result = db.run(sql_query)
-        print("Query result:", result)
+        # print("Query result:", result)
     except Exception as e:
         print(f"SQL execution failed: {e}")
         result = None

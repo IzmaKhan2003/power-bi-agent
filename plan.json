@@ -1,0 +1,110 @@
+{
+  "project": "PowerBI SQL Conversational Agent",
+  "version": "2.0",
+  "objective": "Transform the current linear LangChain SQL agent into an advanced LangGraph-based multi-turn conversational assistant with context retention, dynamic reasoning, and fault recovery.",
+
+  "core_goals": [
+    "Enable continuous chat loop (multi-turn, context-aware)",
+    "Implement LangGraph branching with success/failure paths",
+    "Integrate business context layer for smarter query planning",
+    "Improve error handling and recovery across nodes",
+    "Provide natural language + tabular outputs",
+    "Maintain modular node architecture"
+  ],
+
+  "workflow_nodes": {
+    "1_user_input": {
+      "role": "Collects user input or follow-up question.",
+      "enhancements": [
+        "Add conversation memory to retain context between questions.",
+        "Parse user intent type (query, clarification, summary request, exit command)."
+      ]
+    },
+    "2_context_manager": {
+      "role": "Maintains conversational state and relevant context.",
+      "enhancements": [
+        "Store last SQL query, schema, and outputs for follow-up reasoning.",
+        "Resolve pronouns or vague follow-ups (e.g., 'What about the previous one?')."
+      ]
+    },
+    "3_schema_inspector": {
+      "role": "Inspects DB schema once per session or on-demand.",
+      "enhancements": [
+        "Cache schema for performance.",
+        "Detect missing/ambiguous tables and trigger schema_repair node if needed."
+      ]
+    },
+    "4_business_context_layer": {
+      "role": "Adds domain-specific understanding (e.g., sales, customers, performance).",
+      "enhancements": [
+        "Use pre-defined business ontology or embeddings to align vague questions with schema fields."
+      ]
+    },
+    "5_planner": {
+      "role": "Converts natural query into SQL plan.",
+      "enhancements": [
+        "Include feedback from business context layer.",
+        "If planner confidence < threshold, route to clarification node."
+      ]
+    },
+    "6_validator": {
+      "role": "Checks query safety, syntax, and data type correctness.",
+      "branches": {
+        "success": "sql_executor",
+        "failure": "error_handler"
+      }
+    },
+    "7_sql_executor": {
+      "role": "Executes SQL safely on DB.",
+      "branches": {
+        "success": "output_formatter",
+        "failure": "error_handler"
+      }
+    },
+    "8_output_formatter": {
+      "role": "Formats SQL result into user-friendly natural + tabular output.",
+      "enhancements": [
+        "Switch automatically between conversational text and tables based on result size.",
+        "Retain last response in memory for follow-ups."
+      ]
+    },
+    "9_error_handler": {
+      "role": "Handles node or query failure gracefully.",
+      "enhancements": [
+        "Classify error (validation, execution, connection).",
+        "Provide human-readable error message.",
+        "Option to retry or replan query automatically."
+      ]
+    },
+    "10_exit_node": {
+      "role": "Gracefully end session when user types exit/quit/bye.",
+      "enhancements": [
+        "Save session summary to logs or conversation memory."
+      ]
+    }
+  },
+
+  "graph_structure": {
+    "entry_point": "1_user_input",
+    "edges": {
+      "1_user_input": ["context_manager", "exit_node"],
+      "context_manager": ["schema_inspector", "business_context_layer"],
+      "schema_inspector": ["planner"],
+      "business_context_layer": ["planner"],
+      "planner": ["validator", "error_handler"],
+      "validator": ["sql_executor", "error_handler"],
+      "sql_executor": ["output_formatter", "error_handler"],
+      "output_formatter": ["user_input"],
+      "error_handler": ["planner", "user_input"]
+    },
+    "finish_point": "exit_node"
+  },
+
+  "additional_features": {
+    "memory": "Session memory for context-aware conversations",
+    "logging": "Structured logs for debugging and flow tracing",
+    "retry_policy": "Auto reattempt on transient DB failures",
+    "metrics": "Track node success/failure counts for analysis",
+    "ui_integration": "Optional Streamlit or Gradio chat frontend"
+  }
+}
