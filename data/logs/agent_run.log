@@ -26,3 +26,334 @@
 2025-11-05 03:19:08,918 - NLPToSQLGraph - INFO - Building NLP-to-SQL graph...
 2025-11-05 03:19:38,021 - NLPToSQLGraph - INFO - Building NLP-to-SQL graph...
 2025-11-05 03:19:38,038 - NLPToSQLGraph - INFO - NLP-to-SQL graph compiled successfully
+2025-11-05 03:20:18,195 - NLPToSQLGraph - INFO - Building NLP-to-SQL graph...
+2025-11-05 03:20:18,219 - NLPToSQLGraph - INFO - NLP-to-SQL graph compiled successfully
+2025-11-05 03:20:18,359 - DBConnection - INFO - Database connection test successful
+2025-11-05 03:20:18,363 - MemoryManager - INFO - Created new session: session_20251105_032018
+2025-11-05 03:20:18,365 - CLIChat - INFO - Started new session: session_20251105_032018
+2025-11-05 03:20:18,511 - DBConnection - INFO - Query executed successfully | {'rows_returned': 14, 'duration_sec': 0.144}
+2025-11-05 03:20:18,511 - DBConnection - INFO - Retrieved 14 tables from database
+2025-11-05 03:20:18,515 - SchemaInspectorNode - INFO - Found 14 tables in database
+2025-11-05 03:20:18,717 - DBConnection - INFO - Query executed successfully | {'rows_returned': 4, 'duration_sec': 0.202}
+2025-11-05 03:20:19,066 - DBConnection - INFO - Query executed successfully | {'rows_returned': 2, 'duration_sec': 0.197}
+2025-11-05 03:20:19,430 - DBConnection - INFO - Query executed successfully | {'rows_returned': 2, 'duration_sec': 0.214}
+2025-11-05 03:20:19,919 - DBConnection - INFO - Query executed successfully | {'rows_returned': 11, 'duration_sec': 0.273}
+2025-11-05 03:20:20,365 - DBConnection - INFO - Query executed successfully | {'rows_returned': 2, 'duration_sec': 0.245}
+2025-11-05 03:20:20,776 - DBConnection - INFO - Query executed successfully | {'rows_returned': 18, 'duration_sec': 0.198}
+2025-11-05 03:20:21,246 - DBConnection - INFO - Query executed successfully | {'rows_returned': 5, 'duration_sec': 0.298}
+2025-11-05 03:20:21,801 - DBConnection - INFO - Query executed successfully | {'rows_returned': 14, 'duration_sec': 0.295}
+2025-11-05 03:20:22,279 - DBConnection - INFO - Query executed successfully | {'rows_returned': 10, 'duration_sec': 0.212}
+2025-11-05 03:20:22,728 - DBConnection - INFO - Query executed successfully | {'rows_returned': 2, 'duration_sec': 0.253}
+2025-11-05 03:20:22,959 - DBConnection - INFO - Query executed successfully | {'rows_returned': 3, 'duration_sec': 0.14}
+2025-11-05 03:20:23,219 - DBConnection - INFO - Query executed successfully | {'rows_returned': 12, 'duration_sec': 0.143}
+2025-11-05 03:20:23,478 - DBConnection - INFO - Query executed successfully | {'rows_returned': 3, 'duration_sec': 0.149}
+2025-11-05 03:20:23,733 - DBConnection - INFO - Query executed successfully | {'rows_returned': 4, 'duration_sec': 0.14}
+2025-11-05 03:20:24,044 - DBConnection - INFO - Query executed successfully | {'rows_returned': 13, 'duration_sec': 0.196}
+2025-11-05 03:20:24,044 - SchemaInspectorNode - INFO - Successfully inspected database schema with 14 tables
+2025-11-05 03:20:41,601 - CLIChat - INFO - Processing query: show me all actegories...
+2025-11-05 03:20:41,616 - UserInputNode - INFO - Entering node: user_input | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 03:20:41,616 - UserInputNode - INFO - Processing query: show me all actegories...
+2025-11-05 03:20:41,616 - UserInputNode - INFO - Exiting node: user_input - SUCCESS
+2025-11-05 03:20:41,620 - ContextManagerNode - INFO - Entering node: context_manager | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 03:20:41,621 - ContextManagerNode - INFO - Context loaded: 0 previous turns
+2025-11-05 03:20:41,622 - ContextManagerNode - INFO - Exiting node: context_manager - SUCCESS
+2025-11-05 03:20:41,623 - SchemaInspectorNode - INFO - Entering node: schema_inspector | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 03:20:41,624 - SchemaInspectorNode - INFO - Using schema from state
+2025-11-05 03:20:41,624 - SchemaInspectorNode - INFO - Exiting node: schema_inspector - SUCCESS
+2025-11-05 03:21:12,383 - CLIChat - INFO - Processing query: was my last question correct?...
+2025-11-05 03:21:12,386 - UserInputNode - INFO - Entering node: user_input | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 03:21:12,386 - UserInputNode - INFO - Processing query: was my last question correct?...
+2025-11-05 03:21:12,386 - UserInputNode - INFO - Exiting node: user_input - SUCCESS
+2025-11-05 03:21:12,389 - ContextManagerNode - INFO - Entering node: context_manager | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 03:21:12,389 - ContextManagerNode - INFO - Context loaded: 0 previous turns
+2025-11-05 03:21:12,390 - ContextManagerNode - INFO - Exiting node: context_manager - SUCCESS
+2025-11-05 03:21:12,390 - SchemaInspectorNode - INFO - Entering node: schema_inspector | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 03:21:12,392 - SchemaInspectorNode - INFO - Using schema from state
+2025-11-05 03:21:12,392 - SchemaInspectorNode - INFO - Exiting node: schema_inspector - SUCCESS
+2025-11-05 03:22:08,350 - CLIChat - INFO - Processing query: show me all categories...
+2025-11-05 03:22:08,352 - UserInputNode - INFO - Entering node: user_input | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 03:22:08,352 - UserInputNode - INFO - Processing query: show me all categories...
+2025-11-05 03:22:08,354 - UserInputNode - INFO - Exiting node: user_input - SUCCESS
+2025-11-05 03:22:08,356 - ContextManagerNode - INFO - Entering node: context_manager | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 03:22:08,356 - ContextManagerNode - INFO - Context loaded: 0 previous turns
+2025-11-05 03:22:08,356 - ContextManagerNode - INFO - Exiting node: context_manager - SUCCESS
+2025-11-05 03:22:08,358 - SchemaInspectorNode - INFO - Entering node: schema_inspector | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 03:22:08,359 - SchemaInspectorNode - INFO - Using schema from state
+2025-11-05 03:22:08,360 - SchemaInspectorNode - INFO - Exiting node: schema_inspector - SUCCESS
+2025-11-05 03:24:39,134 - CLIChat - INFO - Session ended. Processed 3 queries.
+2025-11-05 03:24:52,266 - NLPToSQLGraph - INFO - Building NLP-to-SQL graph...
+2025-11-05 03:24:52,290 - NLPToSQLGraph - INFO - NLP-to-SQL graph compiled successfully
+2025-11-05 03:25:19,907 - NLPToSQLGraph - INFO - Building NLP-to-SQL graph...
+2025-11-05 03:25:19,954 - NLPToSQLGraph - INFO - NLP-to-SQL graph compiled successfully
+2025-11-05 03:25:20,185 - DBConnection - INFO - Database connection test successful
+2025-11-05 03:25:20,185 - MemoryManager - INFO - Created new session: session_20251105_032520
+2025-11-05 03:25:20,192 - CLIChat - INFO - Started new session: session_20251105_032520
+2025-11-05 03:25:20,427 - DBConnection - INFO - Query executed successfully | {'rows_returned': 14, 'duration_sec': 0.234}
+2025-11-05 03:25:20,427 - DBConnection - INFO - Retrieved 14 tables from database
+2025-11-05 03:25:20,431 - SchemaInspectorNode - INFO - Found 14 tables in database
+2025-11-05 03:25:20,690 - DBConnection - INFO - Query executed successfully | {'rows_returned': 4, 'duration_sec': 0.258}
+2025-11-05 03:25:21,133 - DBConnection - INFO - Query executed successfully | {'rows_returned': 2, 'duration_sec': 0.248}
+2025-11-05 03:25:21,382 - DBConnection - INFO - Query executed successfully | {'rows_returned': 2, 'duration_sec': 0.127}
+2025-11-05 03:25:21,671 - DBConnection - INFO - Query executed successfully | {'rows_returned': 11, 'duration_sec': 0.172}
+2025-11-05 03:25:22,115 - DBConnection - INFO - Query executed successfully | {'rows_returned': 2, 'duration_sec': 0.254}
+2025-11-05 03:25:22,455 - DBConnection - INFO - Query executed successfully | {'rows_returned': 18, 'duration_sec': 0.171}
+2025-11-05 03:25:22,714 - DBConnection - INFO - Query executed successfully | {'rows_returned': 5, 'duration_sec': 0.146}
+2025-11-05 03:25:22,957 - DBConnection - INFO - Query executed successfully | {'rows_returned': 14, 'duration_sec': 0.133}
+2025-11-05 03:25:23,207 - DBConnection - INFO - Query executed successfully | {'rows_returned': 10, 'duration_sec': 0.154}
+2025-11-05 03:25:23,462 - DBConnection - INFO - Query executed successfully | {'rows_returned': 2, 'duration_sec': 0.143}
+2025-11-05 03:25:23,717 - DBConnection - INFO - Query executed successfully | {'rows_returned': 3, 'duration_sec': 0.144}
+2025-11-05 03:25:23,978 - DBConnection - INFO - Query executed successfully | {'rows_returned': 12, 'duration_sec': 0.146}
+2025-11-05 03:25:24,236 - DBConnection - INFO - Query executed successfully | {'rows_returned': 3, 'duration_sec': 0.141}
+2025-11-05 03:25:24,644 - DBConnection - INFO - Query executed successfully | {'rows_returned': 4, 'duration_sec': 0.298}
+2025-11-05 03:25:24,891 - DBConnection - INFO - Query executed successfully | {'rows_returned': 13, 'duration_sec': 0.143}
+2025-11-05 03:25:24,891 - SchemaInspectorNode - INFO - Successfully inspected database schema with 14 tables
+2025-11-05 03:25:35,390 - CLIChat - INFO - Processing query: hello...
+2025-11-05 03:25:35,405 - UserInputNode - INFO - Entering node: user_input | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 03:25:35,405 - UserInputNode - INFO - Processing query: hello...
+2025-11-05 03:25:35,405 - UserInputNode - INFO - Exiting node: user_input - SUCCESS
+2025-11-05 03:25:35,410 - ContextManagerNode - INFO - Entering node: context_manager | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 03:25:35,410 - ContextManagerNode - INFO - Context loaded: 0 previous turns
+2025-11-05 03:25:35,410 - ContextManagerNode - INFO - Exiting node: context_manager - SUCCESS
+2025-11-05 03:25:35,410 - SchemaInspectorNode - INFO - Entering node: schema_inspector | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 03:25:35,410 - SchemaInspectorNode - INFO - Using schema from state
+2025-11-05 03:25:35,410 - SchemaInspectorNode - INFO - Exiting node: schema_inspector - SUCCESS
+2025-11-05 03:25:35,410 - BusinessContextNode - INFO - Entering node: business_context | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 03:25:35,410 - BusinessContextNode - INFO - Identified domains: []
+2025-11-05 03:25:35,417 - BusinessContextNode - INFO - Suggested tables: []
+2025-11-05 03:25:35,418 - BusinessContextNode - INFO - Exiting node: business_context - SUCCESS
+2025-11-05 03:25:46,754 - CLIChat - INFO - Processing query: show me all categories...
+2025-11-05 03:25:46,757 - UserInputNode - INFO - Entering node: user_input | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 03:25:46,758 - UserInputNode - INFO - Processing query: show me all categories...
+2025-11-05 03:25:46,758 - UserInputNode - INFO - Exiting node: user_input - SUCCESS
+2025-11-05 03:25:46,761 - ContextManagerNode - INFO - Entering node: context_manager | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 03:25:46,761 - ContextManagerNode - INFO - Context loaded: 0 previous turns
+2025-11-05 03:25:46,761 - ContextManagerNode - INFO - Exiting node: context_manager - SUCCESS
+2025-11-05 03:25:46,763 - SchemaInspectorNode - INFO - Entering node: schema_inspector | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 03:25:46,764 - SchemaInspectorNode - INFO - Using schema from state
+2025-11-05 03:25:46,764 - SchemaInspectorNode - INFO - Exiting node: schema_inspector - SUCCESS
+2025-11-05 03:25:46,766 - BusinessContextNode - INFO - Entering node: business_context | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 03:25:46,766 - BusinessContextNode - INFO - Identified domains: []
+2025-11-05 03:25:46,766 - BusinessContextNode - INFO - Suggested tables: []
+2025-11-05 03:25:46,766 - BusinessContextNode - INFO - Exiting node: business_context - SUCCESS
+2025-11-05 03:26:03,796 - CLIChat - INFO - Session ended. Processed 2 queries.
+2025-11-05 03:40:54,741 - NLPToSQLGraph - INFO - Building NLP-to-SQL graph...
+2025-11-05 03:40:54,788 - NLPToSQLGraph - INFO - NLP-to-SQL graph compiled successfully
+2025-11-05 03:41:03,111 - NLPToSQLGraph - INFO - Building NLP-to-SQL graph...
+2025-11-05 03:41:03,168 - NLPToSQLGraph - INFO - NLP-to-SQL graph compiled successfully
+2025-11-05 03:41:03,313 - DBConnection - INFO - Database connection test successful
+2025-11-05 03:41:03,317 - MemoryManager - INFO - Created new session: session_20251105_034103
+2025-11-05 03:41:03,317 - CLIChat - INFO - Started new session: session_20251105_034103
+2025-11-05 03:41:03,452 - DBConnection - INFO - Query executed successfully | {'rows_returned': 14, 'duration_sec': 0.136}
+2025-11-05 03:41:03,452 - DBConnection - INFO - Retrieved 14 tables from database
+2025-11-05 03:41:03,452 - SchemaInspectorNode - INFO - Found 14 tables in database
+2025-11-05 03:41:03,611 - DBConnection - INFO - Query executed successfully | {'rows_returned': 4, 'duration_sec': 0.159}
+2025-11-05 03:41:03,871 - DBConnection - INFO - Query executed successfully | {'rows_returned': 2, 'duration_sec': 0.145}
+2025-11-05 03:41:04,285 - DBConnection - INFO - Query executed successfully | {'rows_returned': 2, 'duration_sec': 0.304}
+2025-11-05 03:41:04,630 - DBConnection - INFO - Query executed successfully | {'rows_returned': 11, 'duration_sec': 0.188}
+2025-11-05 03:41:04,951 - DBConnection - INFO - Query executed successfully | {'rows_returned': 2, 'duration_sec': 0.182}
+2025-11-05 03:41:05,275 - DBConnection - INFO - Query executed successfully | {'rows_returned': 18, 'duration_sec': 0.188}
+2025-11-05 03:41:05,760 - DBConnection - INFO - Query executed successfully | {'rows_returned': 5, 'duration_sec': 0.214}
+2025-11-05 03:41:06,219 - DBConnection - INFO - Query executed successfully | {'rows_returned': 14, 'duration_sec': 0.303}
+2025-11-05 03:41:06,575 - DBConnection - INFO - Query executed successfully | {'rows_returned': 10, 'duration_sec': 0.196}
+2025-11-05 03:41:06,904 - DBConnection - INFO - Query executed successfully | {'rows_returned': 2, 'duration_sec': 0.186}
+2025-11-05 03:41:07,254 - DBConnection - INFO - Query executed successfully | {'rows_returned': 3, 'duration_sec': 0.201}
+2025-11-05 03:41:07,553 - DBConnection - INFO - Query executed successfully | {'rows_returned': 12, 'duration_sec': 0.171}
+2025-11-05 03:41:08,011 - DBConnection - INFO - Query executed successfully | {'rows_returned': 3, 'duration_sec': 0.192}
+2025-11-05 03:41:08,304 - DBConnection - INFO - Query executed successfully | {'rows_returned': 4, 'duration_sec': 0.166}
+2025-11-05 03:41:08,638 - DBConnection - INFO - Query executed successfully | {'rows_returned': 13, 'duration_sec': 0.192}
+2025-11-05 03:41:08,638 - SchemaInspectorNode - INFO - Successfully inspected database schema with 14 tables
+2025-11-05 03:41:38,331 - CLIChat - INFO - Processing query: show me all categories...
+2025-11-05 03:41:38,335 - UserInputNode - INFO - Entering node: user_input | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 03:41:38,335 - UserInputNode - INFO - Processing query: show me all categories...
+2025-11-05 03:41:38,335 - UserInputNode - INFO - Exiting node: user_input - SUCCESS
+2025-11-05 03:41:38,339 - ContextManagerNode - INFO - Entering node: context_manager | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 03:41:38,339 - ContextManagerNode - INFO - Context loaded: 0 previous turns
+2025-11-05 03:41:38,341 - ContextManagerNode - INFO - Exiting node: context_manager - SUCCESS
+2025-11-05 03:41:38,341 - SchemaInspectorNode - INFO - Entering node: schema_inspector | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 03:41:38,342 - SchemaInspectorNode - INFO - Using schema from state
+2025-11-05 03:41:38,342 - SchemaInspectorNode - INFO - Exiting node: schema_inspector - SUCCESS
+2025-11-05 03:41:38,344 - BusinessContextNode - INFO - Entering node: business_context | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 03:41:38,344 - BusinessContextNode - INFO - Identified domains: []
+2025-11-05 03:41:38,344 - BusinessContextNode - INFO - Suggested tables: []
+2025-11-05 03:41:38,347 - BusinessContextNode - INFO - Exiting node: business_context - SUCCESS
+2025-11-05 03:41:38,349 - PlannerNode - INFO - Entering node: planner | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 03:41:39,182 - PlannerNode - ERROR - Error in planner | {'error_type': 'PlanningError', 'error': 'Failed to generate SQL query: The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable'}
+2025-11-05 03:41:39,185 - PlannerNode - INFO - Exiting node: planner - FAILURE
+2025-11-05 03:41:39,187 - ValidatorNode - INFO - Entering node: validator | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 03:41:39,187 - ValidatorNode - ERROR - No SQL query to validate
+2025-11-05 03:41:39,187 - ValidatorNode - INFO - Exiting node: validator - FAILURE
+2025-11-05 03:41:39,191 - SQLExecutorNode - INFO - Entering node: sql_executor | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 03:41:39,191 - SQLExecutorNode - ERROR - No SQL query to execute
+2025-11-05 03:41:39,191 - SQLExecutorNode - INFO - Exiting node: sql_executor - FAILURE
+2025-11-05 03:41:39,191 - OutputFormatterNode - INFO - Entering node: output_formatter | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 03:41:39,195 - OutputFormatterNode - INFO - No results to format
+2025-11-05 03:41:39,195 - OutputFormatterNode - ERROR - Error in output_formatter | {'error_type': 'FormattingError', 'error': 'Error formatting output: unsupported format string passed to NoneType.__format__'}
+2025-11-05 03:41:39,195 - OutputFormatterNode - INFO - Exiting node: output_formatter - FAILURE
+2025-11-05 03:41:39,195 - CLIChat - ERROR - Error processing query: object of type 'NoneType' has no len()
+2025-11-05 03:42:45,558 - CLIChat - INFO - Session ended. Processed 1 queries.
+2025-11-05 03:42:55,612 - NLPToSQLGraph - INFO - Building NLP-to-SQL graph...
+2025-11-05 03:42:55,695 - NLPToSQLGraph - INFO - NLP-to-SQL graph compiled successfully
+2025-11-05 03:42:55,831 - DBConnection - INFO - Database connection test successful
+2025-11-05 03:42:55,831 - MemoryManager - INFO - Created new session: session_20251105_034255
+2025-11-05 03:42:55,832 - CLIChat - INFO - Started new session: session_20251105_034255
+2025-11-05 03:42:55,933 - DBConnection - INFO - Query executed successfully | {'rows_returned': 14, 'duration_sec': 0.1}
+2025-11-05 03:42:55,933 - DBConnection - INFO - Retrieved 14 tables from database
+2025-11-05 03:42:55,937 - SchemaInspectorNode - INFO - Found 14 tables in database
+2025-11-05 03:42:56,253 - DBConnection - INFO - Query executed successfully | {'rows_returned': 4, 'duration_sec': 0.315}
+2025-11-05 03:42:56,597 - DBConnection - INFO - Query executed successfully | {'rows_returned': 2, 'duration_sec': 0.198}
+2025-11-05 03:42:56,945 - DBConnection - INFO - Query executed successfully | {'rows_returned': 2, 'duration_sec': 0.189}
+2025-11-05 03:42:57,272 - DBConnection - INFO - Query executed successfully | {'rows_returned': 11, 'duration_sec': 0.184}
+2025-11-05 03:42:57,603 - DBConnection - INFO - Query executed successfully | {'rows_returned': 2, 'duration_sec': 0.187}
+2025-11-05 03:42:57,932 - DBConnection - INFO - Query executed successfully | {'rows_returned': 18, 'duration_sec': 0.183}
+2025-11-05 03:42:58,236 - DBConnection - INFO - Query executed successfully | {'rows_returned': 5, 'duration_sec': 0.161}
+2025-11-05 03:42:58,528 - DBConnection - INFO - Query executed successfully | {'rows_returned': 14, 'duration_sec': 0.181}
+2025-11-05 03:42:58,881 - DBConnection - INFO - Query executed successfully | {'rows_returned': 10, 'duration_sec': 0.198}
+2025-11-05 03:42:59,256 - DBConnection - INFO - Query executed successfully | {'rows_returned': 2, 'duration_sec': 0.2}
+2025-11-05 03:42:59,556 - DBConnection - INFO - Query executed successfully | {'rows_returned': 3, 'duration_sec': 0.16}
+2025-11-05 03:42:59,989 - DBConnection - INFO - Query executed successfully | {'rows_returned': 12, 'duration_sec': 0.177}
+2025-11-05 03:43:00,412 - DBConnection - INFO - Query executed successfully | {'rows_returned': 3, 'duration_sec': 0.181}
+2025-11-05 03:43:00,731 - DBConnection - INFO - Query executed successfully | {'rows_returned': 4, 'duration_sec': 0.18}
+2025-11-05 03:43:01,079 - DBConnection - INFO - Query executed successfully | {'rows_returned': 13, 'duration_sec': 0.209}
+2025-11-05 03:43:01,079 - SchemaInspectorNode - INFO - Successfully inspected database schema with 14 tables
+2025-11-05 03:43:11,363 - CLIChat - INFO - Processing query: show me all categories...
+2025-11-05 03:43:11,365 - UserInputNode - INFO - Entering node: user_input | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 03:43:11,365 - UserInputNode - INFO - Processing query: show me all categories...
+2025-11-05 03:43:11,365 - UserInputNode - INFO - Exiting node: user_input - SUCCESS
+2025-11-05 03:43:11,365 - ContextManagerNode - INFO - Entering node: context_manager | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 03:43:11,370 - ContextManagerNode - INFO - Context loaded: 0 previous turns
+2025-11-05 03:43:11,371 - ContextManagerNode - INFO - Exiting node: context_manager - SUCCESS
+2025-11-05 03:43:11,371 - SchemaInspectorNode - INFO - Entering node: schema_inspector | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 03:43:11,371 - SchemaInspectorNode - INFO - Using schema from state
+2025-11-05 03:43:11,371 - SchemaInspectorNode - INFO - Exiting node: schema_inspector - SUCCESS
+2025-11-05 03:43:11,376 - BusinessContextNode - INFO - Entering node: business_context | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 03:43:11,376 - BusinessContextNode - INFO - Identified domains: []
+2025-11-05 03:43:11,377 - BusinessContextNode - INFO - Suggested tables: []
+2025-11-05 03:43:11,377 - BusinessContextNode - INFO - Exiting node: business_context - SUCCESS
+2025-11-05 03:43:11,379 - PlannerNode - INFO - Entering node: planner | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 03:43:14,526 - PlannerNode - INFO - Generating SQL query with LLM...
+2025-11-05 03:43:15,419 - PlannerNode - ERROR - Error in planner | {'error_type': 'PlanningError', 'error': "Failed to generate SQL query: Error code: 401 - {'error': {'message': 'Incorrect API key provided: AIzaSyDC***************************J3h8. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}"}
+2025-11-05 03:43:15,419 - PlannerNode - INFO - Exiting node: planner - FAILURE
+2025-11-05 03:43:15,424 - ValidatorNode - INFO - Entering node: validator | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 03:43:15,424 - ValidatorNode - ERROR - No SQL query to validate
+2025-11-05 03:43:15,424 - ValidatorNode - INFO - Exiting node: validator - FAILURE
+2025-11-05 03:43:15,430 - SQLExecutorNode - INFO - Entering node: sql_executor | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 03:43:15,432 - SQLExecutorNode - ERROR - No SQL query to execute
+2025-11-05 03:43:15,434 - SQLExecutorNode - INFO - Exiting node: sql_executor - FAILURE
+2025-11-05 03:43:15,435 - OutputFormatterNode - INFO - Entering node: output_formatter | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 03:43:15,438 - OutputFormatterNode - INFO - No results to format
+2025-11-05 03:43:15,438 - OutputFormatterNode - ERROR - Error in output_formatter | {'error_type': 'FormattingError', 'error': 'Error formatting output: unsupported format string passed to NoneType.__format__'}
+2025-11-05 03:43:15,438 - OutputFormatterNode - INFO - Exiting node: output_formatter - FAILURE
+2025-11-05 03:43:15,438 - CLIChat - ERROR - Error processing query: object of type 'NoneType' has no len()
+2025-11-05 03:46:48,573 - CLIChat - INFO - Processing query: show me all categories...
+2025-11-05 03:46:48,576 - UserInputNode - INFO - Entering node: user_input | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 03:46:48,576 - UserInputNode - INFO - Processing query: show me all categories...
+2025-11-05 03:46:48,576 - UserInputNode - INFO - Exiting node: user_input - SUCCESS
+2025-11-05 03:46:48,576 - ContextManagerNode - INFO - Entering node: context_manager | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 03:46:48,576 - ContextManagerNode - INFO - Context loaded: 0 previous turns
+2025-11-05 03:46:48,576 - ContextManagerNode - INFO - Exiting node: context_manager - SUCCESS
+2025-11-05 03:46:48,582 - SchemaInspectorNode - INFO - Entering node: schema_inspector | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 03:46:48,583 - SchemaInspectorNode - INFO - Using schema from state
+2025-11-05 03:46:48,583 - SchemaInspectorNode - INFO - Exiting node: schema_inspector - SUCCESS
+2025-11-05 03:46:48,583 - BusinessContextNode - INFO - Entering node: business_context | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 03:46:48,585 - BusinessContextNode - INFO - Identified domains: []
+2025-11-05 03:46:48,585 - BusinessContextNode - INFO - Suggested tables: []
+2025-11-05 03:46:48,587 - BusinessContextNode - INFO - Exiting node: business_context - SUCCESS
+2025-11-05 03:46:48,587 - PlannerNode - INFO - Entering node: planner | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 03:46:48,589 - PlannerNode - INFO - Generating SQL query with LLM...
+2025-11-05 03:46:49,023 - PlannerNode - ERROR - Error in planner | {'error_type': 'PlanningError', 'error': "Failed to generate SQL query: Error code: 401 - {'error': {'message': 'Incorrect API key provided: AIzaSyDC***************************J3h8. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}"}
+2025-11-05 03:46:49,023 - PlannerNode - INFO - Exiting node: planner - FAILURE
+2025-11-05 03:46:49,023 - ValidatorNode - INFO - Entering node: validator | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 03:46:49,023 - ValidatorNode - ERROR - No SQL query to validate
+2025-11-05 03:46:49,023 - ValidatorNode - INFO - Exiting node: validator - FAILURE
+2025-11-05 03:46:49,034 - SQLExecutorNode - INFO - Entering node: sql_executor | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 03:46:49,034 - SQLExecutorNode - ERROR - No SQL query to execute
+2025-11-05 03:46:49,034 - SQLExecutorNode - INFO - Exiting node: sql_executor - FAILURE
+2025-11-05 03:46:49,040 - OutputFormatterNode - INFO - Entering node: output_formatter | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 03:46:49,040 - OutputFormatterNode - INFO - No results to format
+2025-11-05 03:46:49,040 - OutputFormatterNode - ERROR - Error in output_formatter | {'error_type': 'FormattingError', 'error': 'Error formatting output: unsupported format string passed to NoneType.__format__'}
+2025-11-05 03:46:49,040 - OutputFormatterNode - INFO - Exiting node: output_formatter - FAILURE
+2025-11-05 03:46:49,040 - CLIChat - ERROR - Error processing query: object of type 'NoneType' has no len()
+2025-11-05 03:47:29,253 - CLIChat - INFO - Session ended. Processed 2 queries.
+2025-11-05 03:53:21,797 - NLPToSQLGraph - INFO - Building NLP-to-SQL graph...
+2025-11-05 03:53:21,890 - NLPToSQLGraph - INFO - NLP-to-SQL graph compiled successfully
+2025-11-05 03:53:22,109 - DBConnection - INFO - Database connection test successful
+2025-11-05 03:53:22,110 - MemoryManager - INFO - Created new session: session_20251105_035322
+2025-11-05 03:53:22,111 - CLIChat - INFO - Started new session: session_20251105_035322
+2025-11-05 03:53:22,219 - DBConnection - INFO - Query executed successfully | {'rows_returned': 14, 'duration_sec': 0.107}
+2025-11-05 03:53:22,219 - DBConnection - INFO - Retrieved 14 tables from database
+2025-11-05 03:53:22,221 - SchemaInspectorNode - INFO - Found 14 tables in database
+2025-11-05 03:53:22,364 - DBConnection - INFO - Query executed successfully | {'rows_returned': 4, 'duration_sec': 0.143}
+2025-11-05 03:53:22,598 - DBConnection - INFO - Query executed successfully | {'rows_returned': 2, 'duration_sec': 0.131}
+2025-11-05 03:53:22,918 - DBConnection - INFO - Query executed successfully | {'rows_returned': 2, 'duration_sec': 0.143}
+2025-11-05 03:53:23,284 - DBConnection - INFO - Query executed successfully | {'rows_returned': 11, 'duration_sec': 0.177}
+2025-11-05 03:53:23,760 - DBConnection - INFO - Query executed successfully | {'rows_returned': 2, 'duration_sec': 0.268}
+2025-11-05 03:53:24,144 - DBConnection - INFO - Query executed successfully | {'rows_returned': 18, 'duration_sec': 0.221}
+2025-11-05 03:53:24,724 - DBConnection - INFO - Query executed successfully | {'rows_returned': 5, 'duration_sec': 0.351}
+2025-11-05 03:53:25,082 - DBConnection - INFO - Query executed successfully | {'rows_returned': 14, 'duration_sec': 0.132}
+2025-11-05 03:53:25,404 - DBConnection - INFO - Query executed successfully | {'rows_returned': 10, 'duration_sec': 0.232}
+2025-11-05 03:53:25,983 - DBConnection - INFO - Query executed successfully | {'rows_returned': 2, 'duration_sec': 0.281}
+2025-11-05 03:53:26,446 - DBConnection - INFO - Query executed successfully | {'rows_returned': 3, 'duration_sec': 0.258}
+2025-11-05 03:53:26,924 - DBConnection - INFO - Query executed successfully | {'rows_returned': 12, 'duration_sec': 0.274}
+2025-11-05 03:53:27,355 - DBConnection - INFO - Query executed successfully | {'rows_returned': 3, 'duration_sec': 0.233}
+2025-11-05 03:53:27,759 - DBConnection - INFO - Query executed successfully | {'rows_returned': 4, 'duration_sec': 0.215}
+2025-11-05 03:53:28,079 - DBConnection - INFO - Query executed successfully | {'rows_returned': 13, 'duration_sec': 0.168}
+2025-11-05 03:53:28,079 - SchemaInspectorNode - INFO - Successfully inspected database schema with 14 tables
+2025-11-05 03:53:35,435 - CLIChat - INFO - Processing query: show me all categories...
+2025-11-05 03:53:35,438 - UserInputNode - INFO - Entering node: user_input | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 03:53:35,439 - UserInputNode - INFO - Processing query: show me all categories...
+2025-11-05 03:53:35,440 - UserInputNode - INFO - Exiting node: user_input - SUCCESS
+2025-11-05 03:53:35,440 - ContextManagerNode - INFO - Entering node: context_manager | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 03:53:35,442 - ContextManagerNode - INFO - Context loaded: 0 previous turns
+2025-11-05 03:53:35,443 - ContextManagerNode - INFO - Exiting node: context_manager - SUCCESS
+2025-11-05 03:53:35,443 - SchemaInspectorNode - INFO - Entering node: schema_inspector | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 03:53:35,445 - SchemaInspectorNode - INFO - Using schema from state
+2025-11-05 03:53:35,445 - SchemaInspectorNode - INFO - Exiting node: schema_inspector - SUCCESS
+2025-11-05 03:53:35,448 - BusinessContextNode - INFO - Entering node: business_context | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 03:53:35,448 - BusinessContextNode - INFO - Identified domains: []
+2025-11-05 03:53:35,448 - BusinessContextNode - INFO - Suggested tables: []
+2025-11-05 03:53:35,450 - BusinessContextNode - INFO - Exiting node: business_context - SUCCESS
+2025-11-05 03:53:35,450 - PlannerNode - INFO - Entering node: planner | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 03:53:38,121 - PlannerNode - INFO - Generating SQL query with LLM...
+2025-11-05 03:53:38,642 - PlannerNode - ERROR - Error in planner | {'error_type': 'PlanningError', 'error': "Failed to generate SQL query: Error code: 401 - {'error': {'message': 'Incorrect API key provided: AIzaSyDC***************************J3h8. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}"}
+2025-11-05 03:53:38,643 - PlannerNode - INFO - Exiting node: planner - FAILURE
+2025-11-05 03:53:38,646 - ValidatorNode - INFO - Entering node: validator | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 03:53:38,647 - ValidatorNode - ERROR - No SQL query to validate
+2025-11-05 03:53:38,648 - ValidatorNode - INFO - Exiting node: validator - FAILURE
+2025-11-05 03:53:38,652 - SQLExecutorNode - INFO - Entering node: sql_executor | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 03:53:38,653 - SQLExecutorNode - ERROR - No SQL query to execute
+2025-11-05 03:53:38,654 - SQLExecutorNode - INFO - Exiting node: sql_executor - FAILURE
+2025-11-05 03:53:38,657 - OutputFormatterNode - INFO - Entering node: output_formatter | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 03:53:38,659 - OutputFormatterNode - INFO - No results to format
+2025-11-05 03:53:38,659 - OutputFormatterNode - ERROR - Error in output_formatter | {'error_type': 'FormattingError', 'error': 'Error formatting output: unsupported format string passed to NoneType.__format__'}
+2025-11-05 03:53:38,661 - OutputFormatterNode - INFO - Exiting node: output_formatter - FAILURE
+2025-11-05 03:53:38,662 - CLIChat - ERROR - Error processing query: object of type 'NoneType' has no len()
+2025-11-05 04:00:21,770 - CLIChat - INFO - Processing query: C:\Users\DELL\Documents\power-bi-agent\.venv\Scrip...
+2025-11-05 04:00:21,776 - UserInputNode - INFO - Entering node: user_input | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 04:00:21,779 - UserInputNode - INFO - Processing query: C:\Users\DELL\Documents\power-bi-agent\.venv\Scripts\python.exe c:/Users/DELL/Documents/power-bi-age...
+2025-11-05 04:00:21,781 - UserInputNode - INFO - Exiting node: user_input - SUCCESS
+2025-11-05 04:00:21,787 - ContextManagerNode - INFO - Entering node: context_manager | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 04:00:21,789 - ContextManagerNode - INFO - Context loaded: 0 previous turns
+2025-11-05 04:00:21,789 - ContextManagerNode - INFO - Exiting node: context_manager - SUCCESS
+2025-11-05 04:00:21,796 - SchemaInspectorNode - INFO - Entering node: schema_inspector | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 04:00:21,799 - SchemaInspectorNode - INFO - Using schema from state
+2025-11-05 04:00:21,802 - SchemaInspectorNode - INFO - Exiting node: schema_inspector - SUCCESS
+2025-11-05 04:00:21,802 - BusinessContextNode - INFO - Entering node: business_context | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 04:00:21,802 - BusinessContextNode - INFO - Identified domains: []
+2025-11-05 04:00:21,808 - BusinessContextNode - INFO - Suggested tables: []
+2025-11-05 04:00:21,808 - BusinessContextNode - INFO - Exiting node: business_context - SUCCESS
+2025-11-05 04:00:21,815 - PlannerNode - INFO - Entering node: planner | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 04:00:21,819 - PlannerNode - INFO - Generating SQL query with LLM...
+2025-11-05 04:00:22,371 - PlannerNode - ERROR - Error in planner | {'error_type': 'PlanningError', 'error': "Failed to generate SQL query: Error code: 401 - {'error': {'message': 'Incorrect API key provided: AIzaSyDC***************************J3h8. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}"}
+2025-11-05 04:00:22,374 - PlannerNode - INFO - Exiting node: planner - FAILURE
+2025-11-05 04:00:22,378 - ValidatorNode - INFO - Entering node: validator | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 04:00:22,380 - ValidatorNode - ERROR - No SQL query to validate
+2025-11-05 04:00:22,380 - ValidatorNode - INFO - Exiting node: validator - FAILURE
+2025-11-05 04:00:22,384 - SQLExecutorNode - INFO - Entering node: sql_executor | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 04:00:22,388 - SQLExecutorNode - ERROR - No SQL query to execute
+2025-11-05 04:00:22,389 - SQLExecutorNode - INFO - Exiting node: sql_executor - FAILURE
+2025-11-05 04:00:22,391 - OutputFormatterNode - INFO - Entering node: output_formatter | {'state_keys': ['user_query', 'should_exit', 'session_id', 'conversation_history', 'schema_info', 'schema_cached', 'business_context', 'identified_domains', 'suggested_tables', 'sql_query', 'query_plan', 'planner_confidence', 'validation_passed', 'validation_errors', 'query_results', 'execution_success', 'execution_time', 'formatted_output', 'output_table', 'error_info', 'error_type', 'retry_count', 'can_retry', 'metadata', 'node_history', 'messages']}
+2025-11-05 04:00:22,395 - OutputFormatterNode - INFO - No results to format
+2025-11-05 04:00:22,398 - OutputFormatterNode - ERROR - Error in output_formatter | {'error_type': 'FormattingError', 'error': 'Error formatting output: unsupported format string passed to NoneType.__format__'}
+2025-11-05 04:00:22,400 - OutputFormatterNode - INFO - Exiting node: output_formatter - FAILURE
+2025-11-05 04:00:22,402 - CLIChat - ERROR - Error processing query: object of type 'NoneType' has no len()
+2025-11-05 04:00:34,939 - CLIChat - INFO - Session ended. Processed 2 queries.

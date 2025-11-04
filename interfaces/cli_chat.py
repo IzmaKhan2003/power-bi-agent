@@ -49,7 +49,7 @@ def get_user_input() -> Optional[str]:
         User input string or None if interrupted
     """
     try:
-        user_input = input("\n💬 You: ").strip()
+        user_input = input("\n USER: ").strip()
         return user_input
     except (KeyboardInterrupt, EOFError):
         print("\n\nInterrupted. Exiting...")
@@ -63,7 +63,7 @@ def display_response(response: str):
     Args:
         response: Response text to display
     """
-    print(f"\n🤖 Assistant:\n{response}")
+    print(f"\n CHATBOT:\n{response}")
 
 
 def test_database_connection() -> bool:
