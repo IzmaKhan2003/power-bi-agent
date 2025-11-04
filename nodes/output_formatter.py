@@ -8,24 +8,24 @@ from dotenv import load_dotenv
 load_dotenv()
 
 def output_formatter(state):
-    print("💥 output_formatter node reached!")
+    print("output_formatter node reached!")
 
     result = getattr(state, "query_result", None)
     sql_query = getattr(state, "sql_query", None)
 
     if not result:
-        print("⚠️ No results to display.")
+        print(" No results to display.")
         return state
 
-    print("✨ Formatting query result...")
+    print(" Formatting query result...")
 
     # Convert stringified result if necessary
     if isinstance(result, str):
         try:
             result = ast.literal_eval(result)
-            print("🪄 Converted stringified result back to list.")
+            print(" Converted stringified result back to list.")
         except Exception as e:
-            print(f"⚠️ Failed to parse result string: {e}")
+            print(f" Failed to parse result string: {e}")
             return state
 
     # Get DB URL from .env
@@ -43,7 +43,7 @@ def output_formatter(state):
                 schema_info = db.run(f"SELECT column_name FROM information_schema.columns WHERE table_name = '{table_name}'")
                 # schema_info returns list of tuples like [('id',), ('name',), ...]
                 columns = [col[0] for col in schema_info]
-                print(f"🧩 Extracted actual columns from {table_name}: {columns}")
+                print(f" Extracted actual columns from {table_name}: {columns}")
 
             # If query selects specific columns, override the full list
             if re.search(r"select\s+(.*?)\s+from", sql_query, re.IGNORECASE):
@@ -51,7 +51,7 @@ def output_formatter(state):
                 if cols.strip() != "*":
                     columns = [c.strip().split()[-1].replace(";", "") for c in cols.split(",")]
         except Exception as e:
-            print(f"⚠️ Failed to extract column names: {e}")
+            print(f" Failed to extract column names: {e}")
 
     if not columns:
         # Fallback if no columns were found
@@ -68,7 +68,7 @@ def output_formatter(state):
 
     formatted_output = table.get_string()
 
-    print("\n✅ Query Result (Formatted):\n")
+    print("\n Query Result (Formatted):\n")
     print(formatted_output)
 
     return {

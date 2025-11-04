@@ -7,5 +7,5 @@ def user_input(state):
     if not query:
         raise ValueError(f"User query not found in state: {state}")
 
-    print(f"🧠 Received user query: {query}")
+    print(f"Received user query: {query}")
     return {"user_query": query}

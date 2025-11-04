@@ -14,7 +14,7 @@ def planner(state):
     if not user_query or not schema:
         raise ValueError("Planner requires both user_query and db_schema.")
 
-    print("🪄 Planner: generating SQL plan and query...")
+    print(" Planner: generating SQL plan and query...")
 
     llm = ChatGoogleGenerativeAI(
         model=os.getenv("GEMINI_MODEL", "gemini-2.0-flash"),
@@ -42,8 +42,8 @@ Generate a JSON object with:
     except:
         plan, sql_query = "Failed to parse", text
 
-    print(f"✅ SQL Plan: {plan}")
-    print(f"🧩 SQL Query: {sql_query}")
+    print(f" SQL Plan: {plan}")
+    print(f" SQL Query: {sql_query}")
 
     return {
         "user_query": state.user_query,

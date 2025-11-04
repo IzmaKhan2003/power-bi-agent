@@ -5,12 +5,12 @@ from langchain_community.utilities import SQLDatabase
 def query_validator(state):
     # Works whether state is dict or Pydantic model
     sql_query = getattr(state, "sql_query", None) or (state.get("sql_query") if isinstance(state, dict) else None)
-    print(f"🔍 Validator received SQL: {sql_query}")
+    print(f"Validator received SQL: {sql_query}")
 
     if not sql_query:
         raise ValueError(f"No SQL query provided for validation. State received: {state}")
 
-    print(f"🧹 Validating SQL: {sql_query}")
+    print(f"Validating SQL: {sql_query}")
 
     # Basic safety rules
     forbidden = ["drop", "delete", "update", "insert"]
@@ -29,5 +29,5 @@ def query_validator(state):
     if missing:
         raise ValueError(f"❌ Invalid table(s) referenced: {', '.join(missing)}")
 
-    print("✅ SQL validation passed.")
+    print("SQL validation passed.")
     return {**state.dict()} if hasattr(state, "dict") else state

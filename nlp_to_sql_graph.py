@@ -38,15 +38,9 @@ builder.set_finish_point("output_formatter")
 app = builder.compile()
  
 
-print("🤖 IntelliQuery (Stage 1) Started")
+print("IntelliQuery (Stage 1) Started")
 
 query = input("Enter your question: ")
 input_state = {"user_query": query}
 result = app.invoke(input_state)
 
-# if "formatted_output" in result:
-#     print("\n✅ Final Output (Pretty Table):\n")
-#     print(result["formatted_output"])
-# else:
-#     print("\n✅ Final Output:")
-#     print(result)

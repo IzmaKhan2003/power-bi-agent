@@ -7,3 +7,5 @@ venv/
 # 2. Python Bytecode and Cache
 __pycache__/
 *.pyc
+
+updated_agent_plan[1].json

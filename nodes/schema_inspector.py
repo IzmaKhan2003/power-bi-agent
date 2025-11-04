@@ -17,9 +17,9 @@ def schema_inspector(state):
         cur.close()
         conn.close()
 
-        print(f"📘 Found {len(schema_info)} columns in database.")
+        print(f"Found {len(schema_info)} columns in database.")
         return {"db_schema": schema_info}
 
     except Exception as e:
-        print(f"❌ Schema inspector failed: {e}")
+        print(f"Schema inspector failed: {e}")
         return {"db_schema": None}
